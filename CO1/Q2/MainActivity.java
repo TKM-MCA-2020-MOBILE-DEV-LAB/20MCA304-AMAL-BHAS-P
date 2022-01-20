@@ -1,43 +1,30 @@
-package com.example.activitylifecycle;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("lifecycle","onCreate invoked");
     }
+    public void btnclick(View view){
+        EditText edt=findViewById(R.id.editTextTextPersonName);
+        EditText edt1=findViewById(R.id.editTextTextPersonName2);
+        EditText edt2=findViewById(R.id.editTextTextPersonName3);
 
-    protected void onStart(){
-      super.onStart();
-      Log.d("lifecycle","onStart invoked");
-    }
-protected void onResume(){
-    super.onResume();
-    Log.d("lifecycle","onResume invoked");
-    }
-    protected void onPause() {
-        super.onPause();
-        Log.d("lifecycle","onPause invoked");
-    }
+        TextView txt1= findViewById(R.id.textView);
+        TextView txt2= findViewById(R.id.textView3);
+        TextView txt3= findViewById(R.id.textView4);
 
-    protected void onStop() {
-        super.onStop();
-        Log.d("lifecycle","onStop invoked");
-    }
-
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("lifecycle","onRestart invoked");
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("lifecycle","onDestroy invoked");
+        txt1.setText("Hello" +edt.getText().toString());
+        txt2.setText("Address" +edt1.getText().toString());
+        txt1.setText("email" +edt2.getText().toString());
     }
 }
-

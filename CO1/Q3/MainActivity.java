@@ -1,101 +1,196 @@
-package com.example.admin.form1;
-//import androidx.appcompat.app.AppCompatActivity;
+package com.example.calculator;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.view.View;
-import android.widget.Toast;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+public class MainActivity extends AppCompatActivity {
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+    Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_0, btn_Add, btn_Sub, btn_Mul, btn_Div, btn_calc, btn_dec, btn_clear;
+    EditText ed1;
 
-public class MainActivity extends AppCompatActivity
-{
-    EditText ed1,ed2,ed3,ed4,ed5;
-    Button bts1;
-    Pattern patterns;
-    Matcher matches;
-    String emailPattern="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    float Value1, Value2;
+    boolean mAddition, mSubtract, mMultiplication, mDivision;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ed1=(EditText)findViewById(R.id.editText);
-        ed2=(EditText)findViewById(R.id.editText2);
-        ed3=( EditText)findViewById(R.id.editText3);
-        ed4=(EditText)findViewById(R.id.editText4);
-        // String email=ed3.getText().toString().trim();
-        String emailPattern="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        //String passPattern="[(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}]";
-        bts1=(Button)findViewById(R.id.button);
-        bts1.setOnClickListener(new View.OnClickListener() {
+
+        btn_0 = (Button) findViewById(R.id.btn_0);
+        btn_1 = (Button) findViewById(R.id.btn_1);
+        btn_2 = (Button) findViewById(R.id.btn_2);
+        btn_3 = (Button) findViewById(R.id.btn_3);
+        btn_4 = (Button) findViewById(R.id.btn_4);
+        btn_5 = (Button) findViewById(R.id.btn_5);
+        btn_6 = (Button) findViewById(R.id.btn_6);
+        btn_7 = (Button) findViewById(R.id.btn_7);
+        btn_8 = (Button) findViewById(R.id.btn_8);
+        btn_9 = (Button) findViewById(R.id.btn_9);
+        btn_Add = (Button) findViewById(R.id.btn_Add);
+        btn_Div = (Button) findViewById(R.id.btn_Div);
+        btn_Sub = (Button) findViewById(R.id.btn_Sub);
+        btn_Mul = (Button) findViewById(R.id.btn_Mul);
+        btn_calc = (Button) findViewById(R.id.btn_calc);
+        btn_dec = (Button) findViewById(R.id.btn_dec);
+        btn_clear = (Button) findViewById(R.id.btn_clear);
+        ed1 = (EditText) findViewById(R.id.edText1);
+
+        btn_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                ed1.setText(ed1.getText() + "0");
+            }
+        });
+
+        btn_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "1");
+            }
+        });
+
+        btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "2");
+            }
+        });
+
+        btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "3");
+            }
+        });
+
+        btn_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "4");
+            }
+        });
+
+        btn_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "5");
+            }
+        });
+
+        btn_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "6");
+            }
+        });
+
+        btn_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "7");
+            }
+        });
+
+        btn_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "8");
+            }
+        });
+
+        btn_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + "9");
+            }
+        });
+
+        btn_dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText() + ".");
+            }
+        });
+
+        btn_Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (ed1 == null) {
+                    ed1.setText("");
+                } else {
+                    Value1 = Float.parseFloat(ed1.getText() + "");
+                    mAddition = true;
+                    ed1.setText(null);
+                }
+            }
+        });
+
+        btn_Sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText() + "");
+                mSubtract = true;
+                ed1.setText(null);
+            }
+        });
+
+        btn_Mul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText() + "");
+                mMultiplication = true;
+                ed1.setText(null);
+            }
+        });
+
+        btn_Div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText() + "");
+                mDivision = true;
+                ed1.setText(null);
+            }
+        });
+
+        btn_calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value2 = Float.parseFloat(ed1.getText() + "");
+
+                if (mAddition == true) {
+
+                    ed1.setText(Value1 + Value2 + "");
+                    mAddition = false;
+                }
+
+
+                if (mSubtract == true) {
+                    ed1.setText(Value1 - Value2 + "");
+                    mSubtract = false;
+                }
+
+                if (mMultiplication == true) {
+                    ed1.setText(Value1 * Value2 + "");
+                    mMultiplication = false;
+                }
+
+                if (mDivision == true) {
+                    ed1.setText(Value1 / Value2 + "");
+                    mDivision = false;
+                }
+            }
+        });
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText("");
             }
         });
     }
-//}
-    public void login()
-    {   String email=ed3.getText().toString().trim();
-        String nam=ed1.getText().toString();
-        //String email=ed3.getText().toString();
-        if(ed1.getText().toString().length()==0)
-        {
-            ed1.requestFocus();
-            ed1.setError("Enter valid name");
-            return;
-        }
-        String namePattern="[0-9!@#$%^&*]";
-        if(ed1.getText().toString().matches(namePattern))
-        {   ed1.requestFocus();
-            ed1.setError("Enter valid name");
-            return;
-
-        }
-        if(ed2.getText().toString().length()==0)
-        {
-            ed2.requestFocus();
-            ed2.setError("Enter valid address");
-            return;
-        }
-        if(ed3.getText().toString().length()==0)
-
-        {
-            Toast.makeText(getApplicationContext(),"Invalid Email Address",Toast.LENGTH_SHORT).show();
-            ed3.requestFocus();
-            ed3.setError("Enter valid email");
-            return;
-        }
-        if (!email.matches(emailPattern))
-        { //Toast.makeText(getApplicationContext(),"Invalid Email Address",Toast.LENGTH_SHORT).show();
-            ed3.requestFocus();
-            ed3.setError("Invalid email");
-
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"valid Email Address",Toast.LENGTH_SHORT).show();
-        }
-        if(ed4.getText().toString().length()==0)
-        {
-            ed4.requestFocus();
-            ed4.setError("Enter valid password");
-            return;
-        }
-        if(ed4.getText().toString().length()<8)
-        {
-            ed4.requestFocus();
-            ed4.setError("Enter minimum 8 digit password");
-            return;
-        }
-
-
-
-
-    }}
+}
